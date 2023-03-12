@@ -1,0 +1,4 @@
+vptree
+numpy
+imutils
+opencv-python

@@ -1,0 +1,6 @@
+101_ObjectCategories/
+queries/
+.idea/
+venv/
+/hashes.pickle
+/vptree.pickle
