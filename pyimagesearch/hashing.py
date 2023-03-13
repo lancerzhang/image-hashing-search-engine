@@ -1,4 +1,7 @@
 # import the necessary packages
+import hashlib
+
+from skimage.metrics import structural_similarity as ssim
 import numpy as np
 import cv2
 
@@ -25,3 +28,17 @@ def convert_hash(h):
 def hamming(a, b):
     # compute and return the Hamming distance between the integers
     return bin(int(a) ^ int(b)).count("1")
+
+
+def get_hash(img):
+    b = img.view(np.uint8)
+    return hashlib.sha1(b).hexdigest()
+
+
+def ssim_compare(a, b):
+    return 1 - ssim(a['image'], b['image'])
+
+
+def convert_image(img):
+    image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    return cv2.resize(image, (8, 8))
