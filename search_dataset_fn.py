@@ -36,16 +36,16 @@ distance = args["distance"]
 print(f'distance:{distance  }')
 print("[INFO] performing search...")
 start = time.time()
-# results = tree.get_all_in_range(query, distance)
-results = tree.get_nearest_neighbor(query)
+results = tree.get_all_in_range(query, distance)
+# results = tree.get_nearest_neighbor(query)
 end = time.time()
 print("[INFO] search took {} seconds".format(end - start))
-# results = sorted(results, key=lambda x: x[0])
+results = sorted(results, key=lambda x: x[0])
 # only should top 5 results
-# results = results[:5]
-#
-# # loop over the results
-# for (d, h) in results:
-#     img = h['origin']
-#     cv2.imshow("Result", img)
-#     cv2.waitKey(0)
+results = results[:5]
+
+# loop over the results
+for (d, h) in results:
+    img = h['origin']
+    cv2.imshow("Result", img)
+    cv2.waitKey(0)

@@ -10,11 +10,10 @@ Index images
 time python index_images.py --images 101_ObjectCategories --tree vptree.pickle --hashes hashes.pickle
 time python index_images_ssim.py --images 101_ObjectCategories --tree vptree.pickle --hashes hashes.pickle
 time python index_dataset.py --dataset mnist --tree vptree.pickle --hashes hashes.pickle
-time python index_dataset_fn.py --dataset mnist --tree vptree.pickle --dist_fn mse
+time python index_dataset_fn.py --tree vptree.pickle --dataset mnist --dist_fn mse
 ```
 
 Search image
-distance for mse - 2000, ssim - 0.2
 ```shell
 python search.py --tree vptree.pickle --hashes hashes.pickle --query queries/buddha.jpg
 python search_ssim.py --tree vptree.pickle --hashes hashes.pickle --query queries/buddha.jpg
@@ -24,16 +23,47 @@ python search_dataset_fn.py --tree vptree.pickle --dataset mnist --distance 2000
 
 ## Data set
 
-* 101_ObjectCategories, hash is good
+### 101_ObjectCategories, hash is good
 
 https://data.caltech.edu/records/mzrjq-6wc02
 
-* mnist, 8x8 image. dhash & mse is not accurate. ssim is much better but slow, around 100 ms, min 30 ms, max 300 ms to perform
-  get_nearest_neighbor()
-* mnist, 16x16. mse is good, around 30 ms, min 11 ms, max 59 ms to perform get_nearest_neighbor()
+### mnist
 
 https://www.tensorflow.org/datasets/catalog/mnist
 
+distance for mse - 2000, ssim - 0.2
+
+* 8x8 image. dhash & mse is not accurate. ssim is much better but slow, around 100 ms, min 30 ms, max 300 ms to perform
+  get_nearest_neighbor()
+* 16x16 image. mse is good, around 30 ms, min 11 ms, max 59 ms to perform get_nearest_neighbor()
+
+
+### cmaterdb
+
+distance for mse - 10000
+
+* 16x16 image. mse is good.
+
+https://knowyourdata-tfds.withgoogle.com/#tab=STATS&dataset=cmaterdb
+
+### omniglot
+
+distance for mse - 10000, ssim - 0.5
+
+* 16x16 image. mse is not accurate, ssim is also not good. image too large? not in center?
+
+### kmnist
+
+distance for mse - 5000
+
+* 16x16 image. mse is good.
+
+### emnist
+
+distance for mse - 2000
+
+* 16x16 image. mse is good.
+* 
 ## Performance
 
 https://github.com/idealo/imagededup
