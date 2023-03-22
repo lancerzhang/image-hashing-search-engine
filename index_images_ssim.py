@@ -1,12 +1,12 @@
 # import the necessary packages
-from pyimagesearch.hashing import convert_hash, get_hash, ssim_compare, convert_image
-from pyimagesearch.hashing import hamming
-from pyimagesearch.hashing import dhash
-from imutils import paths
 import argparse
 import pickle
-import vptree
+
 import cv2
+import vptree
+from imutils import paths
+
+from pyimagesearch.hashing import get_hash, ssim_compare, convert_image
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -42,8 +42,3 @@ print("[INFO] serializing VP-Tree...")
 f = open(args["tree"], "wb")
 f.write(pickle.dumps(tree))
 f.close()
-# serialize the hashes to dictionary
-# print("[INFO] serializing hashes...")
-# f = open(args["hashes"], "wb")
-# f.write(pickle.dumps(hashes))
-# f.close()

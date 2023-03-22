@@ -1,9 +1,9 @@
 # import the necessary packages
 import hashlib
 
-from skimage.metrics import structural_similarity as ssim
-import numpy as np
 import cv2
+import numpy as np
+from skimage.metrics import structural_similarity as ssim
 
 
 def dhash(image, hashSize=8):
@@ -42,6 +42,9 @@ def ssim_compare(a, b):
     return 1 - ssim(a['image'], b['image'])
 
 
-def convert_image(img):
-    image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    return cv2.resize(image, (8, 8))
+def convert_image(image):
+    if image.shape[2] == 1:
+        gray = image
+    else:
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    return cv2.resize(gray, (8, 8))

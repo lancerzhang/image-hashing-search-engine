@@ -1,10 +1,11 @@
 # import the necessary packages
-from pyimagesearch.hashing import convert_hash, convert_image
-from pyimagesearch.hashing import dhash
 import argparse
 import pickle
 import time
+
 import cv2
+
+from pyimagesearch.hashing import convert_image
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -19,9 +20,8 @@ ap.add_argument("-d", "--distance", type=int, default=10,
 args = vars(ap.parse_args())
 
 # load the VP-Tree and hashes dictionary
-print("[INFO] loading VP-Tree and hashes...")
+print("[INFO] loading VP-Tree...")
 tree = pickle.loads(open(args["tree"], "rb").read())
-hashes = pickle.loads(open(args["hashes"], "rb").read())
 # load the input query image
 image = cv2.imread(args["query"])
 cv2.imshow("Query", image)

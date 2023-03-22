@@ -1,10 +1,12 @@
 # import the necessary packages
-from pyimagesearch.hashing import convert_hash
-from pyimagesearch.hashing import dhash
 import argparse
 import pickle
 import time
+
 import cv2
+
+from pyimagesearch.hashing import convert_hash
+from pyimagesearch.hashing import dhash
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()

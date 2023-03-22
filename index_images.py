@@ -1,12 +1,14 @@
 # import the necessary packages
-from pyimagesearch.hashing import convert_hash
-from pyimagesearch.hashing import hamming
-from pyimagesearch.hashing import dhash
-from imutils import paths
 import argparse
 import pickle
-import vptree
+
 import cv2
+import vptree
+from imutils import paths
+
+from pyimagesearch.hashing import convert_hash
+from pyimagesearch.hashing import dhash
+from pyimagesearch.hashing import hamming
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
