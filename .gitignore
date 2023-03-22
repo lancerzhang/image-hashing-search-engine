@@ -2,5 +2,7 @@
 queries/
 .idea/
 venv/
+datasets/
 /hashes.pickle
 /vptree.pickle
+try.py

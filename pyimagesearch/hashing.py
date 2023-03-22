@@ -7,8 +7,11 @@ import cv2
 
 
 def dhash(image, hashSize=8):
-    # convert the image to grayscale
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    if image.shape[2] == 1:
+        gray = image
+    else:
+        # convert the image to grayscale
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # resize the grayscale image, adding a single column (width) so we
     # can compute the horizontal gradient
     resized = cv2.resize(gray, (hashSize + 1, hashSize))

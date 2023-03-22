@@ -6,11 +6,13 @@ https://pyimagesearch.com/2019/08/26/building-an-image-hashing-search-engine-wit
 Index images
 ```shell
 time python index_images.py --images 101_ObjectCategories --tree vptree.pickle --hashes hashes.pickle
+time python index_dataset.py --dataset mnist --tree vptree.pickle --hashes hashes.pickle
 ```
 
 Search image
 ```shell
 python search.py --tree vptree.pickle --hashes hashes.pickle --query queries/buddha.jpg
+python search_dataset.py --tree vptree.pickle --hashes hashes.pickle --dataset mnist
 ```
 
 ## Data set
